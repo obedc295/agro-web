@@ -8,4 +8,4 @@ toxicidad: Banda roja
 imagen: gramoxone.jpg
 ---
 
-Herbicida de contacto no selectivo utilizado para control de malezas en cultivos. :contentReference[oaicite:1]{index=1}
+Herbicida de contacto no selectivo utilizado para control de malezas en cultivos. 
