@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+const products: CollectionEntry<'products'>[] = await getCollection('products');
+---
+
+<Layout title="Productos Agropecuarios">
+  <h1 class="text-3xl font-bold mb-6">Productos</h1>
+   <a
+          href={"/"}
+          class="text-green-700 font-medium mt-2 inline-block"
+        >
+          Regresar
+        </a>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {products.map((product) => (
+      <article class="border rounded-lg p-4 shadow">
+        <img
+          src={product.data.imagen}
+          alt={product.data.nombre}
+          class="mr-5 w-48 rounded object-cover h-48"
+        />
+        <h2 class="text-xl font-semibold">{product.data.nombre}</h2>
+        <p class="text-sm text-gray-600">{product.data.categoria}</p>
+        <a
+          href={`/products/${product.slug}`}
+          class="text-green-700 font-medium mt-2 inline-block"
+        >
+          Ver ficha técnica →
+        </a>
+      </article>
+    ))}
+  </div>
+</Layout>
